@@ -1,0 +1,311 @@
+{
+  "updated_at": "2026-06-18T14:20:55",
+  "event": {
+    "date": "2026-08-08",
+    "time": "1:00 PM \u2013 5:00 PM",
+    "rsvp_deadline": "2026-07-11",
+    "guests_target": 61,
+    "venue": "Unleashed Event Space, 1361 Fulton Ave, Suite 103, Sacramento, CA 95825"
+  },
+  "urls": {
+    "site": "https://wedding-planning.vercel.app",
+    "planning_hub": "https://wedding-planning.vercel.app",
+    "resources": "https://wedding-planning.vercel.app/resources",
+    "google_sheet_id": "1OM-zo0rfFiY0KM1G1baqGDpkikHExgEqZTfag3ZvRxw",
+    "google_sheet": "https://docs.google.com/spreadsheets/d/1OM-zo0rfFiY0KM1G1baqGDpkikHExgEqZTfag3ZvRxw/edit?usp=sharing",
+    "venue_maps": "https://maps.google.com/?q=1361+Fulton+Ave+Suite+103+Sacramento+CA+95825"
+  },
+  "tasks": {
+    "total": 24,
+    "open": 24,
+    "done": 0,
+    "progress_pct": 0,
+    "upcoming": [
+      {
+        "priority": "HIGH",
+        "task": "Confirm remaining venue payment (~$800) with Laura & Mauricio Solis",
+        "owner": "Javad",
+        "due": "2026-07-10",
+        "status": "Not started",
+        "notes": "Due ~July 18, 2026",
+        "days_left": 22
+      },
+      {
+        "priority": "HIGH",
+        "task": "Finalize final headcount after July 11 RSVP deadline",
+        "owner": "Javad",
+        "due": "2026-07-13",
+        "status": "Not started",
+        "notes": "Currently 50 adults + 11 kids = 61 total",
+        "days_left": 25
+      },
+      {
+        "priority": "HIGH",
+        "task": "Find out exact venue access time on Aug 8 and who picks up the keys / unlocks",
+        "owner": "Javad",
+        "due": "2026-07-15",
+        "status": "Not started",
+        "notes": "Critical! Call venue this week. Confirm who has keys and access time.",
+        "days_left": 27
+      },
+      {
+        "priority": "HIGH",
+        "task": "Place La Esperanza catering order (meats, rice, beans, tortillas, salsa, chips for 61 people)",
+        "owner": "Javad",
+        "due": "2026-07-20",
+        "status": "Not started",
+        "notes": "Include kid-friendly/mild options. Get written confirmation + exact pickup time.",
+        "days_left": 32
+      },
+      {
+        "priority": "HIGH",
+        "task": "Coordinate with Roni & Alondra \u2013 confirm they bring speaker + mic + karaoke machine",
+        "owner": "Javad + Roni",
+        "due": "2026-07-25",
+        "status": "Not started",
+        "notes": "Decide where it will be set up. Test together if possible.",
+        "days_left": 37
+      },
+      {
+        "priority": "MEDIUM",
+        "task": "Dani & Javad decide exact all-white outfits + schedule shopping trip together",
+        "owner": "Dani + Javad",
+        "due": "2026-07-25",
+        "status": "Not started",
+        "notes": "Make it a fun date! Shop late July at Arden Fair or local boutiques.",
+        "days_left": 37
+      },
+      {
+        "priority": "LOW",
+        "task": "Decide if we want optional dessert (or confirm none)",
+        "owner": "Javad + Dani",
+        "due": "2026-07-25",
+        "status": "Not started",
+        "notes": "Completely optional \u2013 someone can volunteer.",
+        "days_left": 37
+      },
+      {
+        "priority": "MEDIUM",
+        "task": "Confirm who is picking up the La Esperanza order on Aug 8",
+        "owner": "Javad",
+        "due": "2026-07-28",
+        "status": "Not started",
+        "notes": "Needs to be someone reliable with a vehicle that can keep food warm.",
+        "days_left": 40
+      }
+    ],
+    "by_status": {
+      "not_started": 23,
+      "in_progress": 1,
+      "done": 0
+    }
+  },
+  "guests": {
+    "rows": 6,
+    "confirmed": 0,
+    "pending": 6,
+    "headcount": 11,
+    "target": 61
+  },
+  "budget": {
+    "paid_items": [
+      {
+        "item": "Venue \u2013 Unleashed Event Space",
+        "total": 2000.0,
+        "paid": 1200.0,
+        "remaining": "Laura & Mauricio to pay remaining ~$800 by ~July 18"
+      }
+    ],
+    "purchase_estimates": [
+      {
+        "item": "Food \u2013 La Esperanza Catering",
+        "estimate": 1100.0
+      },
+      {
+        "item": "Beverages (detailed Costco breakdown)",
+        "estimate": 530.0
+      },
+      {
+        "item": "Tableware & Place Settings",
+        "estimate": 178.0
+      },
+      {
+        "item": "Decor (black/gold theme)",
+        "estimate": 250.0
+      },
+      {
+        "item": "Misc + Couple's Outfits",
+        "estimate": 508.0
+      }
+    ],
+    "est_new_spend": 2566.0,
+    "paid_so_far": 1200.0,
+    "committed": 2000.0
+  },
+  "agenda": [
+    {
+      "time": "9:00 \u2013 10:30 AM",
+      "what": "Setup: tables, decor, taco station, welcome area",
+      "owner": "Setup team",
+      "notes": "Venue has 10 tables with chairs \u2013 easy!"
+    },
+    {
+      "time": "10:30 \u2013 11:30 AM",
+      "what": "Final decor + food service area ready",
+      "owner": "Setup team",
+      "notes": null
+    },
+    {
+      "time": "11:30 AM \u2013 12:00 PM",
+      "what": "Pickup La Esperanza order + pay",
+      "owner": "Assigned person",
+      "notes": "Keep food warm"
+    },
+    {
+      "time": "12:00 \u2013 12:45 PM",
+      "what": "Set up taco station, drinks, kid items. Test sound",
+      "owner": "Food helpers + Roni & Alondra",
+      "notes": "Have welcome drinks ready early"
+    },
+    {
+      "time": "12:45 \u2013 1:00 PM",
+      "what": "Quick team briefing",
+      "owner": "Javad",
+      "notes": "Everyone knows their role"
+    },
+    {
+      "time": "1:00 PM",
+      "what": "Doors open \u2013 greet guests with drinks",
+      "owner": "Javad + greeters",
+      "notes": "Relaxed, joyful welcome"
+    },
+    {
+      "time": "1:00 \u2013 2:30 PM",
+      "what": "Mingling + taco service begins",
+      "owner": "Food helpers",
+      "notes": "Monitor and replenish station"
+    },
+    {
+      "time": "Throughout",
+      "what": "Music + light announcements",
+      "owner": "Roni & Alondra",
+      "notes": "Keep it chill"
+    },
+    {
+      "time": "3:30 \u2013 4:30 PM",
+      "what": "Light cleanup as guests mingle",
+      "owner": "Cleanup helpers",
+      "notes": "Don\u2019t rush anyone"
+    },
+    {
+      "time": "4:45 \u2013 5:00 PM",
+      "what": "Final thank yous + gentle wind-down",
+      "owner": "Javad + Dani",
+      "notes": null
+    },
+    {
+      "time": "5:00 \u2013 6:00 PM",
+      "what": "Full breakdown + venue walkthrough",
+      "owner": "Full team",
+      "notes": "Leave space as found"
+    },
+    {
+      "time": "After event",
+      "what": "Upload photos to Shared Album + thank you message",
+      "owner": "Javad",
+      "notes": "Via the app"
+    },
+    {
+      "time": "Pro Tip: Have a quick couple photo moment around 1:30 PM and encourage guests to add photos to the Shared Album all afternoon!",
+      "what": null,
+      "owner": null,
+      "notes": null
+    }
+  ],
+  "run_sheet": [
+    {
+      "time": "Time",
+      "task": "Task",
+      "owner": "Owner",
+      "done": false
+    },
+    {
+      "time": "8:30 AM",
+      "task": "Arrive at venue \u2013 confirm access + power outlets",
+      "owner": "Setup lead",
+      "done": false
+    },
+    {
+      "time": "9:00 AM",
+      "task": "Set up tables, runners, welcome area",
+      "owner": "Setup crew",
+      "done": false
+    },
+    {
+      "time": "10:00 AM",
+      "task": "Hang lights / decor (if allowed)",
+      "owner": "Decor helper",
+      "done": false
+    },
+    {
+      "time": "11:30 AM",
+      "task": "Pickup La Esperanza order",
+      "owner": "Pickup person",
+      "done": false
+    },
+    {
+      "time": "12:15 PM",
+      "task": "Set up taco station + drink coolers",
+      "owner": "Food helpers",
+      "done": false
+    },
+    {
+      "time": "12:30 PM",
+      "task": "Sound check \u2013 speaker, mic, karaoke",
+      "owner": "Roni & Alondra",
+      "done": false
+    },
+    {
+      "time": "12:45 PM",
+      "task": "Team briefing \u2013 roles + emergency kit location",
+      "owner": "Javad",
+      "done": false
+    },
+    {
+      "time": "1:00 PM",
+      "task": "Doors open \u2013 greet guests",
+      "owner": "Greeters",
+      "done": false
+    },
+    {
+      "time": "1:30 PM",
+      "task": "Couple photo moment",
+      "owner": "Friend / Javad",
+      "done": false
+    },
+    {
+      "time": "2:00 PM",
+      "task": "Monitor taco station + replenish",
+      "owner": "Food monitors",
+      "done": false
+    },
+    {
+      "time": "3:30 PM",
+      "task": "Light cleanup pass",
+      "owner": "Cleanup helpers",
+      "done": false
+    },
+    {
+      "time": "4:45 PM",
+      "task": "Thank guests + wind-down",
+      "owner": "Javad + Dani",
+      "done": false
+    },
+    {
+      "time": "5:00 PM",
+      "task": "Full breakdown + venue walkthrough",
+      "owner": "Full team",
+      "done": false
+    }
+  ]
+}
