@@ -108,6 +108,15 @@ window.SiteCore = (function () {
     return Math.round((target - today) / 86400000);
   }
 
+  function partyTarget() {
+    var ev = cfg().event || {};
+    return new Date(ev.date + "T13:00:00-07:00");
+  }
+
+  function pad(n) {
+    return n < 10 ? "0" + n : String(n);
+  }
+
   function initCountdown(ids) {
     var party = cfg().event && cfg().event.date;
     var rsvp = cfg().event && cfg().event.rsvp_deadline;
@@ -125,6 +134,48 @@ window.SiteCore = (function () {
     }
   }
 
+  function initLiveCountdown(container) {
+    if (!container) return;
+    var target = partyTarget();
+
+    function tick() {
+      var now = Date.now();
+      var diff = target - now;
+      if (diff <= 0) {
+        container.innerHTML = "<span class=\"countdown-done\">The celebration has begun!</span>";
+        return;
+      }
+      var days = Math.floor(diff / 86400000);
+      var hours = Math.floor((diff % 86400000) / 3600000);
+      var mins = Math.floor((diff % 3600000) / 60000);
+      var secs = Math.floor((diff % 60000) / 1000);
+      container.innerHTML =
+        "<div class=\"countdown-block\"><span class=\"countdown-num\">" + days + "</span><span class=\"countdown-lbl\">Days</span></div>" +
+        "<div class=\"countdown-block\"><span class=\"countdown-num\">" + pad(hours) + "</span><span class=\"countdown-lbl\">Hours</span></div>" +
+        "<div class=\"countdown-block\"><span class=\"countdown-num\">" + pad(mins) + "</span><span class=\"countdown-lbl\">Minutes</span></div>" +
+        "<div class=\"countdown-block\"><span class=\"countdown-num\">" + pad(secs) + "</span><span class=\"countdown-lbl\">Seconds</span></div>";
+    }
+
+    tick();
+    setInterval(tick, 1000);
+  }
+
+  function mergePublicData(pub) {
+    if (!window.OfflineStore) return pub;
+    var merged = JSON.parse(JSON.stringify(pub || {}));
+    var o = OfflineStore.get();
+    var localYes = o.rsvps.filter(function (r) { return r.attending; });
+    var localHeadcount = localYes.reduce(function (s, r) {
+      return s + (parseInt(r.headcount, 10) || 1);
+    }, 0);
+    merged.rsvp = merged.rsvp || {};
+    merged.rsvp.confirmed_headcount = (merged.rsvp.confirmed_headcount || 0) + localHeadcount;
+    merged.rsvp.local_rsvps = o.rsvps;
+    merged.loveNotes = o.loveNotes;
+    merged.galleryPhotos = o.galleryPhotos;
+    return merged;
+  }
+
   function statusClass(status) {
     var s = (status || "").toLowerCase();
     if (s === "done") return "status-done";
@@ -139,8 +190,11 @@ window.SiteCore = (function () {
     loadCrew: loadCrew,
     loadPublic: loadPublic,
     mergeCrewData: mergeCrewData,
+    mergePublicData: mergePublicData,
     checkGoogleSheet: checkGoogleSheet,
     initCountdown: initCountdown,
+    initLiveCountdown: initLiveCountdown,
+    partyTarget: partyTarget,
     statusClass: statusClass,
     daysUntil: daysUntil,
   };

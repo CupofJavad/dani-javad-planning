@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>RSVP — Dani &amp; Javad Engagement Party</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <div class="brand"><h1>Dani &amp; Javad</h1><span>RSVP · August 8, 2026</span></div>
+      <nav class="tabs" aria-label="Planning sections">
+        <a class="tab" href="index.html">Hub</a>
+        <a class="tab" href="../index.html">Guest Invite</a>
+        <span class="tab active" aria-current="page">RSVP</span>
+        <a class="tab" href="resources.html">Resources</a>
+        <a class="tab" href="tracker.html">Tracker</a>
+        <a class="tab" href="manage.html">Manage</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="panel hero-panel">
+      <div class="label">You're invited</div>
+      <h2 class="page-title">Please RSVP by July 11</h2>
+      <p class="pill" id="rsvp-countdown" role="status"></p>
+      <p class="muted">Saturday, August 8 · 1:00–5:00 PM · Unleashed Event Space, Sacramento</p>
+    </section>
+
+    <section class="panel">
+      <form id="rsvp-form" class="rsvp-form">
+        <label>Name <input name="name" required autocomplete="name" /></label>
+        <label>Email (optional) <input name="email" type="email" autocomplete="email" /></label>
+        <fieldset>
+          <legend>Will you attend?</legend>
+          <label><input type="radio" name="attending" value="yes" required /> Yes, can't wait!</label>
+          <label><input type="radio" name="attending" value="no" /> Sorry, can't make it</label>
+        </fieldset>
+        <label>Total headcount in your party <input name="headcount" type="number" min="1" max="20" value="2" required /></label>
+        <label>Adults <input name="adults" type="number" min="0" max="20" value="2" /></label>
+        <label>Kids <input name="kids" type="number" min="0" max="20" value="0" /></label>
+        <label>Dietary notes <textarea name="dietary" rows="2" placeholder="Allergies, preferences…"></textarea></label>
+        <label>Message for the couple <textarea name="message" rows="2"></textarea></label>
+        <button type="submit" class="btn btn-lg">Submit RSVP</button>
+      </form>
+      <div id="rsvp-success" class="note success-panel" hidden></div>
+    </section>
+  </main>
+  <footer class="site-footer">Black &amp; gold cocktail attire · Avoid white</footer>
+  <script src="../config.js"></script>
+  <script src="../js/offline-store.js"></script>
+  <script src="../js/site-core.js"></script>
+  <script src="../js/rsvp.js"></script>
+</body>
+</html>

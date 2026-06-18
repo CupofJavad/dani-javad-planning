@@ -47,5 +47,93 @@ window.PLANNING_SITE = {
       "q": "Who do I contact on party day?",
       "a": "Roni, our day-of coordinator: (916) 764-8938"
     }
+  ],
+  "registries": [
+    {
+      "name": "Amazon Registry",
+      "url": "https://www.amazon.com/wedding/registry",
+      "description": "Curated gifts for their new chapter",
+      "ready": false,
+      "note": "Link updates when registry is live"
+    },
+    {
+      "name": "Honeyfund",
+      "url": "https://www.honeyfund.com/",
+      "description": "Honeymoon memories fund",
+      "ready": false,
+      "note": "Personal fund page coming soon"
+    },
+    {
+      "name": "CashApp",
+      "url": "https://cash.app/",
+      "description": "Quick honeymoon contribution",
+      "ready": false,
+      "note": "Cashtag shared at the party"
+    }
+  ],
+  "guestTimeline": [
+    {
+      "time": "1:00 PM",
+      "title": "Welcome & Cocktails",
+      "desc": "Doors open \u2014 grab a drink and find your seat"
+    },
+    {
+      "time": "1:30 PM",
+      "title": "Appetizers Served",
+      "desc": "La Esperanza tacos, rice & beans for everyone"
+    },
+    {
+      "time": "2:30 PM",
+      "title": "Music & Mingling",
+      "desc": "Wonderful music and great company all afternoon"
+    },
+    {
+      "time": "3:30 PM",
+      "title": "Photo Moments",
+      "desc": "Capture memories with Dani & Javad"
+    },
+    {
+      "time": "4:30 PM",
+      "title": "Last Call",
+      "desc": "Final toasts and farewell hugs"
+    },
+    {
+      "time": "5:00 PM",
+      "title": "Farewell",
+      "desc": "Thank you for celebrating with us!"
+    }
+  ],
+  "weather": {
+    "summary": "Sacramento in August is warm and sunny \u2014 highs around 93\u00b0F.",
+    "tip": "Unleashed Event Space is air-conditioned. Black & gold cocktail attire encouraged."
+  },
+  "parking": "Street and nearby lot parking on Fulton Ave. Arrive 10 minutes early for easy check-in.",
+  "guestDescription": "Join us for a relaxed and joyful afternoon of cocktails, delicious appetizers, wonderful music, and great company as we celebrate Dani & Javad's engagement.",
+  "hostChecklist": [
+    {
+      "id": "final-headcount",
+      "text": "Confirm final headcount with venue & caterer",
+      "done": false
+    },
+    {
+      "id": "music-playlist",
+      "text": "Finalize music playlist",
+      "done": false
+    },
+    {
+      "id": "decor-setup",
+      "text": "Black & gold decor delivered & staged",
+      "done": false
+    },
+    {
+      "id": "rsvp-followup",
+      "text": "Follow up with pending RSVPs by July 11",
+      "done": false
+    },
+    {
+      "id": "day-of-brief",
+      "text": "Brief Roni on run-of-show",
+      "done": false
+    }
   ]
 };

@@ -3,102 +3,208 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Dani and Javad engagement party — August 8, 2026" />
-  <title>Dani &amp; Javad — Planning Hub</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  <meta name="description" content="You're invited to Dani &amp; Javad's engagement party — August 8, 2026, Sacramento. RSVP, directions, and celebration details." />
+  <meta property="og:title" content="Dani &amp; Javad — Engagement Party" />
+  <meta property="og:description" content="Join us August 8, 2026 · 1–5 PM · Unleashed Event Space, Sacramento" />
+  <meta property="og:type" content="website" />
+  <title>Dani &amp; Javad — Engagement Party</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles-guest.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
 </head>
-<body>
+<body class="guest-page">
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
-    <div class="site-header-inner">
-      <div class="brand">
-        <h1>Dani &amp; Javad</h1>
-        <span>Engagement Party · Aug 8, 2026</span>
+
+  <div id="welcome-gate" class="welcome-gate" aria-label="Open invitation">
+    <div class="welcome-card">
+      <div class="rings-art" aria-hidden="true">
+        <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="42" cy="48" rx="22" ry="22" fill="none" stroke="#d4af37" stroke-width="3" class="ring-sparkle"/>
+          <ellipse cx="72" cy="42" rx="22" ry="22" fill="none" stroke="#f8e7b0" stroke-width="3" class="ring-sparkle" style="animation-delay:0.5s"/>
+          <circle cx="58" cy="18" r="3" fill="#f5e6a3" class="ring-sparkle"/>
+          <circle cx="88" cy="28" r="2" fill="#d4af37" class="ring-sparkle" style="animation-delay:1s"/>
+        </svg>
       </div>
-      <nav class="tabs" aria-label="Planning sections">
-        <span class="tab active" aria-current="page">Hub</span>
-        <a class="tab" href="rsvp.html">RSVP</a>
-        <a class="tab" href="resources.html">Resources</a>
-        <a class="tab" href="tracker.html">Tracker</a>
-      </nav>
+      <h2>You're Invited</h2>
+      <p>Dani &amp; Javad invite you to celebrate their engagement</p>
+      <button type="button" class="btn-gold" id="open-invite">Open Invitation</button>
+    </div>
+  </div>
+
+  <nav id="guest-nav" class="guest-nav" aria-label="Page sections">
+    <a href="#details">Details</a>
+    <a href="#rsvp">RSVP</a>
+    <a href="#notes">Notes</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#registry">Registry</a>
+    <a href="#directions">Directions</a>
+    <a href="#timeline">Timeline</a>
+    <a href="#checklist">Checklist</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+
+  <header class="guest-hero" aria-label="Invitation hero">
+    <div id="bubble-field" class="bubble-field" aria-hidden="true"></div>
+    <div id="sparkle-field" class="sparkle-field" aria-hidden="true"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Engagement Party Celebration</p>
+      <h1 class="hero-title">Dani <span class="amp">&amp;</span> Javad</h1>
+      <p class="hero-sub">Saturday, August 8, 2026 · Sacramento, California</p>
+      <div id="countdown-live" class="countdown-live" role="timer" aria-live="polite"></div>
+      <div class="hero-cta">
+        <a class="btn-gold" href="#rsvp">RSVP by July 11</a>
+        <a class="btn-ghost" href="events/engagement-party.ics" download>Add to Calendar</a>
+      </div>
     </div>
   </header>
 
   <main id="main">
-    <p id="mode-banner" class="mode-banner" hidden></p>
-
-    <section class="panel hero-panel hero-visual">
-      <div class="label">Start here</div>
-      <h2 class="page-title">Let's make August 8 unforgettable</h2>
-      <p class="muted">Share with guests, plan with your crew, and track everything in the <strong>planning spreadsheet</strong>.</p>
-      <div class="pill" id="countdown" role="status">Loading countdown…</div>
-      <div class="hero-actions">
-        <a class="btn btn-lg" href="https://docs.google.com/spreadsheets/d/1OM-zo0rfFiY0KM1G1baqGDpkikHExgEqZTfag3ZvRxw/edit?usp=sharing" target="_blank" rel="noopener">Open planning spreadsheet</a>
-        <a class="btn btn-outline" href="rsvp.html">RSVP by July 11</a>
-        <a class="btn btn-outline" href="events/engagement-party.ics" download>Add to calendar</a>
-        <a class="btn btn-outline" href="resources.html#venue">Directions</a>
+    <section id="details" class="guest-section reveal">
+      <div class="section-label">The Celebration</div>
+      <h2>Join Us for an Unforgettable Afternoon</h2>
+      <p id="guest-description" class="section-lead"></p>
+      <div class="guest-stats">
+        <div class="guest-stat"><div class="num" id="stat-confirmed">—</div><div class="lbl">Guests confirmed</div></div>
+        <div class="guest-stat"><div class="num" id="stat-target">61</div><div class="lbl">Target headcount</div></div>
+        <div class="guest-stat"><div class="num" id="stat-households">—</div><div class="lbl">RSVPs on this device</div></div>
       </div>
-      <div class="stats">
-        <div class="stat"><div class="num" id="days-party">—</div><div class="lbl">Days to party</div></div>
-        <div class="stat"><div class="num" id="days-rsvp">—</div><div class="lbl">Days to RSVP</div></div>
-        <div class="stat"><div class="num"><span id="guest-headcount">—</span>/<span id="guest-target">61</span></div><div class="lbl">Headcount</div></div>
-        <div class="stat"><div class="num" id="open-tasks">—</div><div class="lbl">Open tasks</div></div>
-      </div>
-      <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progress-bar" style="width:0%"></div></div>
-      <p class="sync-note" id="data-updated"></p>
+      <dl style="margin:0">
+        <div class="row" style="border-color:#3d3520"><dt style="color:#a89870">When</dt><dd style="color:#e8dcc0">Saturday, Aug 8, 2026 · 1:00–5:00 PM</dd></div>
+        <div class="row" style="border-color:#3d3520"><dt style="color:#a89870">Where</dt><dd style="color:#e8dcc0">Unleashed Event Space · 1361 Fulton Ave, Suite 103, Sacramento, CA 95825</dd></div>
+        <div class="row" style="border-color:#3d3520"><dt style="color:#a89870">Attire</dt><dd style="color:#e8dcc0">Black &amp; gold cocktail — please avoid white (the couple will be in all white)</dd></div>
+        <div class="row" style="border-color:#3d3520"><dt style="color:#a89870">Food</dt><dd style="color:#e8dcc0">La Esperanza tacos, rice &amp; beans — relaxed afternoon, wonderful music</dd></div>
+        <div class="row" style="border-color:#3d3520"><dt style="color:#a89870">Gifts</dt><dd style="color:#e8dcc0">Your presence is the gift — registries below if you'd like to contribute</dd></div>
+      </dl>
     </section>
 
-    <div class="grid">
-      <section class="panel">
-        <h3 class="section-title">Event snapshot</h3>
-        <dl>
-          <div class="row"><dt>When</dt><dd>Sat, Aug 8, 2026 · 1:00–5:00 PM</dd></div>
-          <div class="row"><dt>Where</dt><dd>Unleashed Event Space, Sacramento</dd></div>
-          <div class="row"><dt>Food</dt><dd>La Esperanza tacos + rice &amp; beans</dd></div>
-          <div class="row"><dt>Attire</dt><dd>Black/gold cocktail (avoid white)</dd></div>
-          <div class="row"><dt>RSVP by</dt><dd><strong>July 11, 2026</strong></dd></div>
-        </dl>
-        <h3 class="section-title" style="margin-top:16px;font-size:1.1rem;">Next deadlines</h3>
-        <ul class="task-list compact" id="upcoming-tasks"></ul>
-      </section>
-      <div>
-        <section class="panel">
-          <h3 class="section-title">Quick links</h3>
-          <a class="action" href="https://docs.google.com/spreadsheets/d/1OM-zo0rfFiY0KM1G1baqGDpkikHExgEqZTfag3ZvRxw/edit?usp=sharing" target="_blank" rel="noopener"><div><strong>Planning spreadsheet</strong><span>Edit tasks, owners, guests, budget</span></div><span>↗</span></a>
-          <a class="action" href="tracker.html"><div><strong>Live tracker (read-only)</strong><span>Dashboard synced from Excel</span></div><span>→</span></a>
-          <a class="action" href="resources.html"><div><strong>Resources</strong><span>Venue, contacts, FAQ</span></div><span>→</span></a>
-        </section>
-        <section class="panel">
-          <h3 class="section-title">Key roles</h3>
-          <div class="role-card"><strong>Javad</strong><br><span>Host &amp; planning lead</span></div>
-          <div class="role-card"><strong>Roni</strong><br><span>Day-of — (916) 764-8938</span></div>
-        </section>
+    <section id="rsvp" class="guest-section reveal">
+      <div class="section-label">RSVP</div>
+      <h2>Will You Join Us?</h2>
+      <p class="section-lead">Please respond by <strong>July 11, 2026</strong>. We can't wait to celebrate with you!</p>
+      <form id="rsvp-form" class="rsvp-form">
+        <label>Your name <input name="name" required autocomplete="name" /></label>
+        <label>Email (optional) <input name="email" type="email" autocomplete="email" /></label>
+        <fieldset>
+          <legend>Will you attend?</legend>
+          <label><input type="radio" name="attending" value="yes" required /> Yes, can't wait!</label>
+          <label><input type="radio" name="attending" value="no" /> Sorry, can't make it</label>
+        </fieldset>
+        <label>Total headcount in your party <input name="headcount" type="number" min="1" max="20" value="2" required /></label>
+        <label>Adults <input name="adults" type="number" min="0" max="20" value="2" /></label>
+        <label>Kids <input name="kids" type="number" min="0" max="20" value="0" /></label>
+        <label>Dietary notes <textarea name="dietary" rows="2" placeholder="Allergies, preferences…"></textarea></label>
+        <label>Message for the couple <textarea name="message" rows="2" placeholder="A note for Dani &amp; Javad…"></textarea></label>
+        <button type="submit" class="btn-gold">Submit RSVP</button>
+      </form>
+      <div id="rsvp-success" class="note success-panel" hidden style="margin-top:20px;background:rgba(212,175,55,0.1);border-color:#4a4030;color:#e8dcc0"></div>
+      <h3 style="margin-top:28px;font-family:'Cormorant Garamond',serif;color:#f8e7b0">Recent RSVPs (this device)</h3>
+      <div class="table-wrap">
+        <table class="guest-table" aria-label="Recent RSVPs">
+          <thead><tr><th>Name</th><th>Attending</th><th>Headcount</th></tr></thead>
+          <tbody id="rsvp-guest-list"></tbody>
+        </table>
       </div>
-    </div>
+    </section>
 
-    <section class="panel" id="faq">
-      <h3 class="section-title">FAQ</h3>
+    <section id="notes" class="guest-section reveal">
+      <div class="section-label">Love Notes</div>
+      <h2>Send a Note to Dani &amp; Javad</h2>
+      <p class="section-lead">Share your wishes, memories, or excitement for the happy couple.</p>
+      <form id="love-note-form" class="rsvp-form" style="max-width:480px">
+        <label>Your name <input name="name" required /></label>
+        <label>Your message <textarea name="message" rows="3" required placeholder="Wishing you both a lifetime of joy…"></textarea></label>
+        <button type="submit" class="btn-gold">Send Love</button>
+      </form>
+      <div id="love-notes-wall" class="love-notes-wall"></div>
+    </section>
+
+    <section id="gallery" class="guest-section reveal">
+      <div class="section-label">Memories</div>
+      <h2>Photo Gallery</h2>
+      <p class="section-lead">Share your favorite moments — photos are saved on this device for the hosts to collect.</p>
+      <div id="gallery-grid" class="gallery-grid"></div>
+      <div id="gallery-upload" class="gallery-upload" role="button" tabindex="0" aria-label="Add photos">
+        <strong>+ Add Photos</strong><br><span>Tap to upload (demo — saved locally)</span>
+        <input type="file" id="gallery-upload-input" accept="image/*" multiple hidden />
+      </div>
+    </section>
+
+    <section id="registry" class="guest-section reveal">
+      <div class="section-label">Registries</div>
+      <h2>Celebrate With a Gift</h2>
+      <p class="section-lead">No gifts are expected — your presence means the world. If you'd like to contribute:</p>
+      <div id="registry-grid" class="registry-grid"></div>
+    </section>
+
+    <section id="directions" class="guest-section reveal">
+      <div class="section-label">Getting There</div>
+      <h2>Directions &amp; Practical Info</h2>
+      <p class="section-lead" id="parking-info"></p>
+      <div class="weather-card" id="weather-info"></div>
+      <div class="map-embed">
+        <iframe
+          title="Map to Unleashed Event Space"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://maps.google.com/maps?q=1361+Fulton+Ave,+Suite+103,+Sacramento,+CA+95825&amp;output=embed"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <p style="margin-top:16px">
+        <a class="btn-gold" href="https://maps.google.com/?q=1361+Fulton+Ave+Suite+103+Sacramento+CA+95825" target="_blank" rel="noopener">Open in Google Maps</a>
+      </p>
+      <p class="section-lead" style="margin-top:16px">Day-of contact: <strong>Roni</strong> — <a href="tel:9167648938" style="color:#d4af37">(916) 764-8938</a></p>
+    </section>
+
+    <section id="timeline" class="guest-section reveal">
+      <div class="section-label">Schedule</div>
+      <h2>Afternoon Timeline</h2>
+      <p class="section-lead">A relaxed celebration from 1:00 to 5:00 PM.</p>
+      <ul id="guest-timeline" class="timeline-guest"></ul>
+    </section>
+
+    <section id="checklist" class="guest-section reveal">
+      <div class="section-label">For Hosts</div>
+      <h2>Planning Checklist</h2>
+      <p class="section-lead">Editable checklist for Javad &amp; Dani — saves on this device. Full ops at <a href="crew/" style="color:#d4af37">crew hub</a>.</p>
+      <ul id="host-checklist" class="checklist-guest"></ul>
+    </section>
+
+    <section id="faq" class="guest-section reveal">
+      <div class="section-label">Questions</div>
+      <h2>Frequently Asked</h2>
       <div class="faq-list" id="faq-list"></div>
+    </section>
+
+    <section class="guest-section reveal share-panel">
+      <div class="section-label">Share the Joy</div>
+      <h2>Invite Friends &amp; Family</h2>
+      <p class="section-lead">Know someone who should be here? Send them the link.</p>
+      <div class="share-box">
+        <input type="text" id="invite-url" readonly aria-label="Invite URL" />
+        <button type="button" class="btn-gold" id="copy-invite">Copy link</button>
+        <button type="button" class="btn-ghost" id="share-invite">Share</button>
+      </div>
     </section>
   </main>
 
-  <footer class="site-footer">August 8, 2026 · Dani &amp; Javad</footer>
+  <div id="rsvp-sticky" class="rsvp-sticky no-print">
+    <a class="btn-gold" href="#rsvp">RSVP Now</a>
+  </div>
+
+  <footer class="guest-footer">
+    August 8, 2026 · Dani &amp; Javad Khoshnevisan<br>
+    Hosted by Javad · <a href="crew/">Planning crew hub</a>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.4/dist/confetti.browser.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
   <script src="config.js"></script>
   <script src="js/offline-store.js"></script>
   <script src="js/site-core.js"></script>
-  <script src="js/app.js"></script>
-  <script>
-    (function () {
-      var faq = (SiteCore.cfg().faq || []);
-      var list = document.getElementById("faq-list");
-      faq.forEach(function (item) {
-        var d = document.createElement("details");
-        d.className = "faq-item";
-        d.innerHTML = "<summary>" + item.q + "</summary><p>" + item.a + "</p>";
-        list.appendChild(d);
-      });
-    })();
-  </script>
+  <script src="js/guest.js"></script>
 </body>
 </html>

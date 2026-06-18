@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Dani and Javad engagement party planning hub" />
+  <meta name="robots" content="noindex" />
+  <title>Dani &amp; Javad — Planning Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <div class="brand">
+        <h1>Dani &amp; Javad</h1>
+        <span>Planning Hub · Aug 8, 2026</span>
+      </div>
+      <nav class="tabs" aria-label="Planning sections">
+        <span class="tab active" aria-current="page">Hub</span>
+        <a class="tab" href="../index.html">Guest Invite</a>
+        <a class="tab" href="rsvp.html">RSVP</a>
+        <a class="tab" href="resources.html">Resources</a>
+        <a class="tab" href="tracker.html">Tracker</a>
+        <a class="tab" href="manage.html">Manage</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <p id="mode-banner" class="mode-banner" hidden></p>
+
+    <section class="panel hero-panel hero-visual">
+      <div class="label">Crew only</div>
+      <h2 class="page-title">Let's make August 8 unforgettable</h2>
+      <p class="muted">Share, plan, and track — <strong>no Google Sheets required</strong>. The site runs from published data; Sheets is optional backup.</p>
+      <div class="pill" id="countdown" role="status">Loading countdown…</div>
+      <div class="hero-actions">
+        <a class="btn btn-lg" href="../index.html#rsvp">Guest RSVP page</a>
+        <a class="btn btn-outline" href="../events/engagement-party.ics" download>Add to calendar</a>
+        <a class="btn btn-outline" href="resources.html#venue">Directions</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="num" id="days-party">—</div><div class="lbl">Days to party</div></div>
+        <div class="stat"><div class="num" id="days-rsvp">—</div><div class="lbl">Days to RSVP</div></div>
+        <div class="stat"><div class="num"><span id="guest-headcount">—</span>/<span id="guest-target">61</span></div><div class="lbl">Headcount</div></div>
+        <div class="stat"><div class="num" id="open-tasks">—</div><div class="lbl">Open tasks</div></div>
+      </div>
+      <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progress-bar" style="width:0%"></div></div>
+      <p class="sync-note" id="data-updated"></p>
+    </section>
+
+    <div class="grid">
+      <section class="panel">
+        <h3 class="section-title">Event snapshot</h3>
+        <dl>
+          <div class="row"><dt>When</dt><dd>Sat, Aug 8, 2026 · 1:00–5:00 PM</dd></div>
+          <div class="row"><dt>Where</dt><dd>Unleashed Event Space, Sacramento</dd></div>
+          <div class="row"><dt>Food</dt><dd>La Esperanza tacos + rice &amp; beans</dd></div>
+          <div class="row"><dt>Attire</dt><dd>Black/gold cocktail (avoid white)</dd></div>
+          <div class="row"><dt>RSVP by</dt><dd><strong>July 11, 2026</strong></dd></div>
+        </dl>
+        <h3 class="section-title" style="margin-top:16px;font-size:1.1rem;">Next deadlines</h3>
+        <ul class="task-list compact" id="upcoming-tasks"></ul>
+      </section>
+      <div>
+        <section class="panel">
+          <h3 class="section-title">Quick links</h3>
+          <a class="action" href="tracker.html"><div><strong>Live tracker</strong><span>Tasks, budget, run sheet</span></div><span>→</span></a>
+          <a class="action" href="manage.html"><div><strong>Manage on site</strong><span>Works if Google Sheets is down</span></div><span>→</span></a>
+          <a class="action" href="resources.html"><div><strong>Resources</strong><span>Venue, contacts, FAQ</span></div><span>→</span></a>
+          <a class="action optional-link" href="https://docs.google.com/spreadsheets/d/1OM-zo0rfFiY0KM1G1baqGDpkikHExgEqZTfag3ZvRxw/edit?usp=sharing" target="_blank" rel="noopener"><div><strong>Google Sheet</strong><span>Collaboration tracker</span></div><span>↗</span></a>
+        </section>
+        <section class="panel">
+          <h3 class="section-title">Key roles</h3>
+          <div class="role-card"><strong>Javad</strong><br><span>Host &amp; planning lead</span></div>
+          <div class="role-card"><strong>Roni</strong><br><span>Day-of — (916) 764-8938</span></div>
+        </section>
+      </div>
+    </div>
+
+    <section class="panel" id="faq">
+      <h3 class="section-title">FAQ</h3>
+      <div class="faq-list" id="faq-list"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">August 8, 2026 · Dani &amp; Javad · <a href="../index.html">Guest invite</a></footer>
+  <script src="../config.js"></script>
+  <script src="../js/offline-store.js"></script>
+  <script src="../js/site-core.js"></script>
+  <script src="../js/app.js"></script>
+  <script>
+    (function () {
+      var faq = (SiteCore.cfg().faq || []);
+      var list = document.getElementById("faq-list");
+      faq.forEach(function (item) {
+        var d = document.createElement("details");
+        d.className = "faq-item";
+        d.innerHTML = "<summary>" + item.q + "</summary><p>" + item.a + "</p>";
+        list.appendChild(d);
+      });
+    })();
+  </script>
+</body>
+</html>

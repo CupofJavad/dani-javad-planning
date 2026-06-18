@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Dani &amp; Javad — Tracker</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="print-friendly">
+  <header class="site-header no-print">
+    <div class="site-header-inner">
+      <div class="brand"><h1>Dani &amp; Javad</h1><span>Tracker</span></div>
+      <nav class="tabs" aria-label="Planning sections">
+        <a class="tab" href="index.html">Hub</a>
+        <a class="tab" href="../index.html">Guest Invite</a>
+        <a class="tab" href="resources.html">Resources</a>
+        <span class="tab active" aria-current="page">Tracker</span>
+        <a class="tab" href="manage.html">Manage</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <p id="mode-banner" class="mode-banner" hidden></p>
+    <section class="panel hero-panel">
+      <div class="label">Site-first tracking</div>
+      <h2 class="page-title">Live planning dashboard</h2>
+      <p class="muted">Data from Excel via <code>planning-crew.json</code> — no live Google Sheets fetch.</p>
+      <p class="sync-note" id="data-updated">Loading…</p>
+      <div class="stats">
+        <div class="stat"><div class="num" id="open-tasks">—</div><div class="lbl">Open tasks</div></div>
+        <div class="stat"><div class="num" id="progress-pct">—</div><div class="lbl">Complete</div></div>
+        <div class="stat"><div class="num"><span id="guest-headcount">—</span>/<span id="guest-target">61</span></div><div class="lbl">Headcount</div></div>
+        <div class="stat"><div class="num" id="rsvp-pending">—</div><div class="lbl">RSVPs pending</div></div>
+      </div>
+      <div class="progress-track"><div class="progress-fill" id="progress-bar"></div></div>
+      <div class="hero-actions no-print">
+        <a class="btn" href="manage.html">Manage on site</a>
+        <button type="button" class="btn btn-outline" onclick="window.print()">Print run sheet</button>
+        <a class="btn btn-outline optional-link" href="https://docs.google.com/spreadsheets/d/1OM-zo0rfFiY0KM1G1baqGDpkikHExgEqZTfag3ZvRxw/edit?usp=sharing" target="_blank" rel="noopener">Sheet (optional)</a>
+      </div>
+    </section>
+    <div class="grid">
+      <section class="panel"><h3 class="section-title">Upcoming tasks</h3><ul class="task-list" id="upcoming-tasks"></ul></section>
+      <section class="panel"><h3 class="section-title">Budget</h3><div id="budget-summary" class="budget-summary"></div></section>
+    </div>
+    <div class="grid">
+      <section class="panel"><h3 class="section-title">Party agenda</h3><ul class="agenda-list" id="agenda-list"></ul></section>
+      <section class="panel" id="run-sheet-panel"><h3 class="section-title">Day-of run sheet</h3><ul class="run-list" id="run-sheet-list"></ul></section>
+    </div>
+  </main>
+  <footer class="site-footer no-print">Site-first mode · August 8, 2026</footer>
+  <script src="../config.js"></script>
+  <script src="../js/offline-store.js"></script>
+  <script src="../js/site-core.js"></script>
+  <script src="../js/app.js"></script>
+</body>
+</html>
