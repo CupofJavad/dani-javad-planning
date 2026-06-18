@@ -29,6 +29,7 @@ window.SiteCore = (function () {
     if (merged.tasks && merged.tasks.all) {
       merged.tasks.all.forEach(function (t) {
         if (o.taskStatus[t.id]) t.status = o.taskStatus[t.id];
+        if (o.taskOwner[t.id] !== undefined) t.owner = o.taskOwner[t.id];
       });
       var open = merged.tasks.all.filter(function (t) {
         return t.status.toLowerCase() !== "done";

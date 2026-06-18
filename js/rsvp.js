@@ -33,7 +33,7 @@
     success.innerHTML =
       "<strong>Thank you!</strong> Your RSVP is saved on this site." +
       (entry.attending ? " We can't wait to celebrate with you." : " We'll miss you.") +
-      '<p class="muted">Saved locally. Host will see it in <a href="manage.html">Manage</a> on this device, or you can:</p>' +
+      '<p class="muted">Saved on this device. Please also tell the host or add your RSVP to the guest list in the planning spreadsheet.</p>' +
       '<button type="button" class="btn" id="copy-rsvp">Copy RSVP text</button>';
 
     document.getElementById("copy-rsvp").addEventListener("click", function () {

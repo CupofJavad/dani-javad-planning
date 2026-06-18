@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-06-18T14:47:24",
+  "updated_at": "2026-06-18T14:56:33",
   "source": "excel",
-  "data_mode": "site-first",
+  "data_mode": "sheet-primary",
   "event": {
     "date": "2026-08-08",
     "time": "1:00 PM \u2013 5:00 PM",

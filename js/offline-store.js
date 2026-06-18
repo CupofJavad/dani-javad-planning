@@ -20,6 +20,7 @@ window.OfflineStore = (function () {
     var d = load();
     if (!d.rsvps) d.rsvps = [];
     if (!d.taskStatus) d.taskStatus = {};
+    if (!d.taskOwner) d.taskOwner = {};
     if (!d.runSheetDone) d.runSheetDone = {};
     if (!d.guestRsvp) d.guestRsvp = {};
     return d;
@@ -37,6 +38,11 @@ window.OfflineStore = (function () {
     setTaskStatus: function (taskId, status) {
       var d = ensure();
       d.taskStatus[taskId] = status;
+      return save(d);
+    },
+    setTaskOwner: function (taskId, owner) {
+      var d = ensure();
+      d.taskOwner[taskId] = owner;
       return save(d);
     },
     setRunDone: function (runId, done) {
@@ -62,6 +68,7 @@ window.OfflineStore = (function () {
       var d = ensure();
       return d.rsvps.length > 0 ||
         Object.keys(d.taskStatus).length > 0 ||
+        Object.keys(d.taskOwner).length > 0 ||
         Object.keys(d.runSheetDone).length > 0 ||
         Object.keys(d.guestRsvp).length > 0;
     },

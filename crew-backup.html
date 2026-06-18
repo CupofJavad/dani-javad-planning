@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Crew backup tracker — Dani &amp; Javad</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <div class="brand"><h1>Dani &amp; Javad</h1><span>Crew backup · offline only</span></div>
+      <nav class="tabs" aria-label="Navigation">
+        <a class="tab" href="index.html">← Planning hub</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="panel hero-panel">
+      <div class="label">Separate from main site</div>
+      <h2 class="page-title">Offline backup tracker</h2>
+      <p class="muted" id="manage-note">Use the <strong>Google Sheet</strong> for day-to-day planning. This page is only for emergencies when the sheet is unavailable — edits save in your browser until you export and merge into Excel.</p>
+      <div class="stats">
+        <div class="stat"><div class="num" id="stat-open">—</div><div class="lbl">Open tasks</div></div>
+        <div class="stat"><div class="num" id="stat-guests">—</div><div class="lbl">Headcount</div></div>
+        <div class="stat"><div class="num" id="stat-rsvp">—</div><div class="lbl">Pending RSVPs</div></div>
+      </div>
+      <div class="hero-actions">
+        <a class="btn" href="https://docs.google.com/spreadsheets/d/1OM-zo0rfFiY0KM1G1baqGDpkikHExgEqZTfag3ZvRxw/edit?usp=sharing" target="_blank" rel="noopener">Open planning spreadsheet</a>
+        <button type="button" class="btn btn-outline" id="export-overrides">Export changes (JSON)</button>
+        <label class="btn btn-outline file-btn">Import overrides<input type="file" id="import-overrides-file" accept="application/json" hidden /></label>
+        <button type="button" class="btn btn-outline" id="clear-overrides">Clear local changes</button>
+      </div>
+      <p class="note" style="margin-top:12px;">After export: <code>python scripts/import-site-overrides.py site-overrides.json</code> then <code>python finalize-all.py</code></p>
+    </section>
+
+    <section class="panel">
+      <h3 class="section-title">Tasks</h3>
+      <p class="muted" style="margin-bottom:12px;">Change <strong>owner</strong> and <strong>status</strong> here when the spreadsheet is down.</p>
+      <datalist id="owner-suggestions"></datalist>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Priority</th><th>Task</th><th>Owner</th><th>Due</th><th>Status</th></tr></thead>
+          <tbody id="task-table-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h3 class="section-title">Guest list &amp; RSVPs</h3>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Name</th><th>Group</th><th>Headcount</th><th>RSVP</th></tr></thead>
+          <tbody id="guest-table-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h3 class="section-title">Day-of run sheet</h3>
+      <ul class="run-list manage-run" id="manage-run-sheet"></ul>
+    </section>
+  </main>
+  <footer class="site-footer">Not linked from main site · Crew use only</footer>
+  <script src="config.js"></script>
+  <script src="js/offline-store.js"></script>
+  <script src="js/site-core.js"></script>
+  <script src="js/manage.js"></script>
+</body>
+</html>

@@ -3,12 +3,31 @@
 
   function el(id) { return document.getElementById(id); }
 
+  function ownerSuggestions() {
+    var names = {};
+    (data.tasks.all || []).forEach(function (t) {
+      if (t.owner) names[t.owner] = true;
+    });
+    return Object.keys(names).sort();
+  }
+
   function renderTasks() {
     var tbody = el("task-table-body");
     if (!tbody || !data) return;
     tbody.innerHTML = "";
+    var suggestions = ownerSuggestions();
     (data.tasks.all || []).forEach(function (t) {
       var tr = document.createElement("tr");
+      var ownerInput = document.createElement("input");
+      ownerInput.type = "text";
+      ownerInput.className = "owner-input";
+      ownerInput.value = t.owner || "";
+      ownerInput.setAttribute("list", "owner-suggestions");
+      ownerInput.placeholder = "Assign owner";
+      ownerInput.addEventListener("change", function () {
+        OfflineStore.setTaskOwner(t.id, ownerInput.value.trim());
+        SiteCore.loadCrew().then(function (d) { data = d; renderTasks(); updateStats(); });
+      });
       var sel = document.createElement("select");
       ["Not started", "In progress", "Done"].forEach(function (s) {
         var opt = document.createElement("option");
@@ -21,12 +40,32 @@
         OfflineStore.setTaskStatus(t.id, sel.value);
         SiteCore.loadCrew().then(function (d) { data = d; renderTasks(); updateStats(); });
       });
-      tr.innerHTML = "<td>" + (t.priority || "") + "</td><td>" + t.task + "</td><td>" + (t.owner || "") + "</td><td>" + (t.due || "") + "</td>";
-      var td = document.createElement("td");
-      td.appendChild(sel);
-      tr.appendChild(td);
+      var priTd = document.createElement("td");
+      priTd.textContent = t.priority || "";
+      var taskTd = document.createElement("td");
+      taskTd.textContent = t.task;
+      var ownerTd = document.createElement("td");
+      ownerTd.appendChild(ownerInput);
+      var dueTd = document.createElement("td");
+      dueTd.textContent = t.due || "";
+      var statusTd = document.createElement("td");
+      statusTd.appendChild(sel);
+      tr.appendChild(priTd);
+      tr.appendChild(taskTd);
+      tr.appendChild(ownerTd);
+      tr.appendChild(dueTd);
+      tr.appendChild(statusTd);
       tbody.appendChild(tr);
     });
+    var dl = el("owner-suggestions");
+    if (dl) {
+      dl.innerHTML = "";
+      suggestions.forEach(function (name) {
+        var opt = document.createElement("option");
+        opt.value = name;
+        dl.appendChild(opt);
+      });
+    }
   }
 
   function renderGuests() {

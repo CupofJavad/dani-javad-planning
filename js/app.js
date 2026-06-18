@@ -22,7 +22,11 @@
     if (!el) return;
     if (data._offline) {
       el.className = "mode-banner offline";
-      el.textContent = "Site-only mode — local changes active. Export from Manage when ready to sync to Excel.";
+      el.textContent = "Local backup edits active — export JSON from the crew backup page to merge into Excel.";
+      el.hidden = false;
+    } else if (SiteCore.cfg().dataMode === "sheet-primary") {
+      el.className = "mode-banner site-first";
+      el.textContent = "Read-only view synced from Excel. Edit tasks and owners in the planning spreadsheet.";
       el.hidden = false;
     } else if (SiteCore.cfg().dataMode === "site-first") {
       el.className = "mode-banner site-first";

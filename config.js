@@ -2,7 +2,7 @@
 window.PLANNING_SITE = {
   "basePath": "/",
   "title": "Dani & Javad",
-  "dataMode": "site-first",
+  "dataMode": "sheet-primary",
   "urls": {
     "site": "https://wedding-planning-six.vercel.app/",
     "planning_hub": "https://wedding-planning-six.vercel.app/",
