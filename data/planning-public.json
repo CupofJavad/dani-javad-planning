@@ -1,0 +1,22 @@
+{
+  "updated_at": "2026-06-18T14:47:24",
+  "source": "excel",
+  "event": {
+    "date": "2026-08-08",
+    "time": "1:00 PM \u2013 5:00 PM",
+    "rsvp_deadline": "2026-07-11",
+    "guests_target": 61,
+    "venue": "Unleashed Event Space, 1361 Fulton Ave, Suite 103, Sacramento, CA 95825"
+  },
+  "rsvp": {
+    "confirmed_headcount": 5,
+    "target_headcount": 61,
+    "pending_count": 3,
+    "confirmed_households": 0,
+    "deadline": "2026-07-11"
+  },
+  "tasks": {
+    "progress_pct": 0,
+    "open": 21
+  }
+}

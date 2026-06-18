@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Dani Javad//Engagement Party//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:engagement-party-2026-08-08@daniandjavad
+DTSTAMP:20260618T120000Z
+DTSTART;TZID=America/Los_Angeles:20260808T130000
+DTEND;TZID=America/Los_Angeles:20260808T170000
+SUMMARY:Dani & Javad Engagement Party
+LOCATION:Unleashed Event Space, 1361 Fulton Ave, Suite 103, Sacramento, CA 95825
+DESCRIPTION:RSVP by July 11. Directions: https://maps.google.com/?q=1361+Fulton+Ave+Suite+103+Sacramento+CA+95825
+END:VEVENT
+END:VCALENDAR

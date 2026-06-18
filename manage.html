@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Dani &amp; Javad — Manage (Site-Only Mode)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <div class="brand"><h1>Dani &amp; Javad</h1><span>Crew · Site-Only Manage</span></div>
+      <nav class="tabs" aria-label="Planning sections">
+        <a class="tab" href="index.html">Hub</a>
+        <a class="tab" href="resources.html">Resources</a>
+        <a class="tab" href="tracker.html">Tracker</a>
+        <span class="tab active" aria-current="page">Manage</span>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="panel hero-panel">
+      <div class="label">No Google Sheets required</div>
+      <h2 class="page-title">Manage on the site</h2>
+      <p class="muted" id="manage-note">Update tasks, RSVPs, and run-sheet checkboxes here. Changes save in your browser until you export and sync to Excel.</p>
+      <div class="stats">
+        <div class="stat"><div class="num" id="stat-open">—</div><div class="lbl">Open tasks</div></div>
+        <div class="stat"><div class="num" id="stat-guests">—</div><div class="lbl">Headcount</div></div>
+        <div class="stat"><div class="num" id="stat-rsvp">—</div><div class="lbl">Pending RSVPs</div></div>
+      </div>
+      <div class="hero-actions">
+        <button type="button" class="btn" id="export-overrides">Export changes (JSON)</button>
+        <label class="btn btn-outline file-btn">Import overrides<input type="file" id="import-overrides-file" accept="application/json" hidden /></label>
+        <button type="button" class="btn btn-outline" id="clear-overrides">Clear local changes</button>
+      </div>
+      <p class="note" style="margin-top:12px;">After export, run <code>python scripts/import-site-overrides.py site-overrides.json</code> to merge into Excel.</p>
+    </section>
+
+    <section class="panel">
+      <h3 class="section-title">Tasks</h3>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Priority</th><th>Task</th><th>Owner</th><th>Due</th><th>Status</th></tr></thead>
+          <tbody id="task-table-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h3 class="section-title">Guest list &amp; RSVPs</h3>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Name</th><th>Group</th><th>Headcount</th><th>RSVP</th></tr></thead>
+          <tbody id="guest-table-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h3 class="section-title">Day-of run sheet</h3>
+      <ul class="run-list manage-run" id="manage-run-sheet"></ul>
+    </section>
+  </main>
+  <footer class="site-footer">Site-only mode · Works without Google Sheets</footer>
+  <script src="config.js"></script>
+  <script src="js/offline-store.js"></script>
+  <script src="js/site-core.js"></script>
+  <script src="js/manage.js"></script>
+</body>
+</html>

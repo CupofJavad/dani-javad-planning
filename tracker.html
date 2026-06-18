@@ -3,102 +3,55 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Live planning tracker for Dani and Javad's engagement party." />
   <title>Dani &amp; Javad — Tracker</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-  <header class="site-header">
+<body class="print-friendly">
+  <header class="site-header no-print">
     <div class="site-header-inner">
-      <div class="brand">
-        <h1>Dani &amp; Javad</h1>
-        <span>Engagement Party · Aug 8, 2026</span>
-      </div>
-      <nav class="tabs" aria-label="Planning sections">
-        <a class="tab" href="/">Planning Hub</a>
-        <a class="tab" href="/resources.html">Resources &amp; Docs</a>
-        <span class="tab active" aria-current="page">Tracker</span>
+      <div class="brand"><h1>Dani &amp; Javad</h1><span>Tracker</span></div>
+      <nav class="tabs">
+        <a class="tab" href="index.html">Hub</a>
+        <a class="tab" href="resources.html">Resources</a>
+        <span class="tab active">Tracker</span>
+        <a class="tab" href="manage.html">Manage</a>
       </nav>
     </div>
   </header>
-
   <main>
+    <p id="mode-banner" class="mode-banner" hidden></p>
     <section class="panel hero-panel">
-      <div class="label">Plan &amp; track</div>
+      <div class="label">Site-first tracking</div>
       <h2 class="page-title">Live planning dashboard</h2>
-      <p class="muted">Synced from the master tracker. Edit tasks in the sheet — then run <code>finalize-all.py</code> to refresh this page.</p>
-      <p class="sync-note" id="data-updated">Loading tracker data…</p>
+      <p class="muted">Data from Excel via <code>planning-crew.json</code> — no live Google Sheets fetch.</p>
+      <p class="sync-note" id="data-updated">Loading…</p>
       <div class="stats">
         <div class="stat"><div class="num" id="open-tasks">—</div><div class="lbl">Open tasks</div></div>
         <div class="stat"><div class="num" id="progress-pct">—</div><div class="lbl">Complete</div></div>
-        <div class="stat"><div class="num"><span id="guest-headcount">—</span>/<span id="guest-target">61</span></div><div class="lbl">Guest headcount</div></div>
+        <div class="stat"><div class="num"><span id="guest-headcount">—</span>/<span id="guest-target">61</span></div><div class="lbl">Headcount</div></div>
         <div class="stat"><div class="num" id="rsvp-pending">—</div><div class="lbl">RSVPs pending</div></div>
       </div>
-      <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progress-bar"></div></div>
-      <div class="hero-actions">
-        <a class="btn" href="https://docs.google.com/spreadsheets/d/1OM-zo0rfFiY0KM1G1baqGDpkikHExgEqZTfag3ZvRxw/edit?usp=sharing" target="_blank" rel="noopener">Open full spreadsheet</a>
-        <a class="btn btn-outline" href="/">Back to hub</a>
+      <div class="progress-track"><div class="progress-fill" id="progress-bar"></div></div>
+      <div class="hero-actions no-print">
+        <a class="btn" href="manage.html">Manage on site</a>
+        <button type="button" class="btn btn-outline" onclick="window.print()">Print run sheet</button>
+        <a class="btn btn-outline optional-link" href="https://docs.google.com/spreadsheets/d/1OM-zo0rfFiY0KM1G1baqGDpkikHExgEqZTfag3ZvRxw/edit?usp=sharing" target="_blank" rel="noopener">Sheet (optional)</a>
       </div>
     </section>
-
     <div class="grid">
-      <section class="panel">
-        <h3 class="section-title">Upcoming tasks</h3>
-        <ul class="task-list" id="upcoming-tasks">
-          <li class="task-item muted">Loading…</li>
-        </ul>
-      </section>
-
-      <section class="panel">
-        <h3 class="section-title">Budget snapshot</h3>
-        <div id="budget-summary" class="budget-summary">
-          <div class="budget-row"><span>Loading…</span></div>
-        </div>
-        <p class="note" style="margin-top:12px;">Full budget breakdown lives in the <strong>Money</strong> and <strong>Shopping List</strong> tabs.</p>
-      </section>
+      <section class="panel"><h3 class="section-title">Upcoming tasks</h3><ul class="task-list" id="upcoming-tasks"></ul></section>
+      <section class="panel"><h3 class="section-title">Budget</h3><div id="budget-summary" class="budget-summary"></div></section>
     </div>
-
     <div class="grid">
-      <section class="panel">
-        <h3 class="section-title">Party day agenda</h3>
-        <ul class="agenda-list" id="agenda-list"></ul>
-      </section>
-
-      <section class="panel">
-        <h3 class="section-title">Day-of run sheet</h3>
-        <p class="muted" style="margin-bottom:12px;">Print-friendly checklist for helpers.</p>
-        <ul class="run-list" id="run-sheet-list"></ul>
-      </section>
+      <section class="panel"><h3 class="section-title">Party agenda</h3><ul class="agenda-list" id="agenda-list"></ul></section>
+      <section class="panel" id="run-sheet-panel"><h3 class="section-title">Day-of run sheet</h3><ul class="run-list" id="run-sheet-list"></ul></section>
     </div>
-
-    <section class="panel share-panel">
-      <div class="label">Share with helpers</div>
-      <h3 class="section-title">Send this link to your crew</h3>
-      <p class="muted">Family and friends helping with setup can bookmark the hub for venue details, contacts, and the live tracker.</p>
-      <div class="share-box">
-        <input type="text" id="share-url" readonly value="" aria-label="Site URL to share" />
-        <button type="button" class="btn" id="copy-link">Copy link</button>
-      </div>
-    </section>
   </main>
-
-  <footer class="site-footer">August 8, 2026 · Private planning space for Dani &amp; Javad</footer>
-  <script src="/app.js"></script>
-  <script>
-    document.getElementById("share-url").value = window.location.origin + "/";
-    document.getElementById("copy-link").addEventListener("click", function () {
-      var input = document.getElementById("share-url");
-      input.select();
-      navigator.clipboard.writeText(input.value).then(function () {
-        document.getElementById("copy-link").textContent = "Copied!";
-        setTimeout(function () {
-          document.getElementById("copy-link").textContent = "Copy link";
-        }, 2000);
-      });
-    });
-  </script>
+  <footer class="site-footer no-print">Site-first mode · August 8, 2026</footer>
+  <script src="config.js"></script>
+  <script src="js/offline-store.js"></script>
+  <script src="js/site-core.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
